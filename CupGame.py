@@ -48,38 +48,39 @@ def gameon_choice():
     else:
         return False
 
+def play():
 
-#Establishing variables to be used in game
+    #Establishing variables to be used in game
 
-game_on = True
-game_list = [0,0,0]
-
-#Game logic using the above functions
-
-while game_on:
-    
-    display_game(game_list)
-    
-    position = position_choice()
-    
-    game_list = place_x(game_list,position)
-
-    display_game(game_list)
-
-    print("Now guess where I've shuffled the X!")
-
-    random.shuffle(game_list)
-    
-    guess = position_choice()
-
-    if game_list[guess] == 'X':
-        display_game(game_list)
-        print('Nice work!')
-    else:
-        display_game(game_list)
-        print('You missed!')
-    
+    game_on = True
     game_list = [0,0,0]
-    game_on = gameon_choice()
 
-print('Thanks for playing the cup game!')
+    #Game logic using the above functions
+
+    while game_on:
+        
+        display_game(game_list)
+        
+        position = position_choice()
+        
+        game_list = place_x(game_list,position)
+
+        display_game(game_list)
+
+        print("Now guess where I've shuffled the X!")
+
+        random.shuffle(game_list)
+        
+        guess = position_choice()
+
+        if game_list[guess] == 'X':
+            display_game(game_list)
+            print('Nice work!')
+        else:
+            display_game(game_list)
+            print('You missed!')
+        
+        game_list = [0,0,0]
+        game_on = gameon_choice()
+
+    print('Thanks for playing the cup game!')
